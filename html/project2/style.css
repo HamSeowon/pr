@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.container{ /*원근감을 가장 상위 div에*/
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    perspective: 1000px; /*작을수록 원금감이 커짐, 극적이게. 클수록 덜 극적임.*/
+}
+
+.flip-btn{
+    width: 200px;
+    height: 100px;
+    color: white;
+    text-align: center;
+    line-height: 100px; /* height 와 line height 값이 같으면 "수직 중앙 정렬" 됨 (단 한줄일때만) */
+    transform-style: preserve-3d; /* 3d 공간에 재 배치, Z 축이 생김 */
+    transition: .5s; /*.5초에 걸쳐 돌아가는 모션을 보여주겟다.*/
+}
+
+.flip-btn:hover{ /*hover 에 마우스를 올리면*/
+    transform:rotateX(-90deg);
+
+}
+.front{
+    background-color: goldenrod;
+    height: 100px;
+    transform: translateZ(50px);
+
+}
+.back{
+    background-color: darkgoldenrod;
+    height: 100px;
+    transform: rotateX(90deg) translateZ(150px);
+}
